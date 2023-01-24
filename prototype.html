@@ -74,7 +74,7 @@
         } else {
             twoHalf = 2;
         }
-
+        
         temp = (weight - barWeight)-((fortyFive * 45) + (thirtyFive * 35) + (twentyFive * 25) + (ten * 10) + (twoHalf * 2.5));
 
         if(temp != 0){
@@ -82,6 +82,11 @@
         }else{
             five = 0;
         }
+        
+        if(weight > 1065) {
+            weight = toString();
+            weight = "Too heavy";
+            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf, temp = 0;}
         
         document.form1.fortyFive.value = fortyFive;
         document.form1.thirtyFive.value = thirtyFive;
