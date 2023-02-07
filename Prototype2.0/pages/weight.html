@@ -1,4 +1,133 @@
 <!DOCTYPE html>
+<style>
+#calculate {
+  width: 250px;
+  height: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: center;
+  border-radius: 30px;
+  background-image: linear-gradient(90deg, red, royalblue);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 10px 15px;
+  color: white;
+  border: 0;
+  font-size: 18px;
+  font-family: Montserrat, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.body-text{
+  text-align: center
+}
+</style>
+<script language="javascript">
+  function calculateLbWeights () {
+        var weight, fortyFive, thirtyFive, twentyFive, ten, five, twoHalf;
+        var barWeight = 45;
+        var temp;
+        weight = parseInt (document.form1.weight.value);
+
+        if(weight > 1065) {
+            weight = toString();
+            weight = "Too heavy";
+            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
+        }else if(weight >= 1035){
+            fortyFive = 22;
+        }else if(weight >= 945){
+            fortyFive = 20;
+        }else if(weight >= 855){
+            fortyFive = 18;
+        }else if(weight >= 765){
+            fortyFive = 16;
+        }else if(weight >= 675){
+            fortyFive = 14;
+        }else if(weight >= 585){
+            fortyFive = 12;
+        }else if(weight >= 495){
+            fortyFive = 10;
+        }else if(weight >= 405){
+            fortyFive = 8;
+        }else if(weight >= 315){
+            fortyFive = 6;
+        }else if(weight >= 225){
+            fortyFive = 4;
+        }else if(weight >= 135){
+            fortyFive = 2;
+        }else {
+            fortyFive = 0;
+        }
+
+        if(weight > 1065) {
+            weight = toString();
+            weight = "Too heavy";
+            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
+        }else if( weight < 1035 && weight >= 1015 || weight < 945 && weight >= 925 || weight < 855 && weight >= 835 || weight < 765 && weight >= 745 || weight < 675 && weight >= 655 || weight < 585 && weight >= 565 || weight < 495 && weight >= 475 || weight < 405 && weight >= 385 || weight < 315 && weight >= 295 || weight < 225 && weight >= 205 || weight < 135 && weight >= 115){
+            thirtyFive = 2;
+
+        }else {
+            thirtyFive = 0;
+        }
+
+        if(weight > 1065) {
+            weight = toString();
+            weight = "Too heavy";
+            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
+        }else if( weight < 1015 && weight >= 995 || weight < 925 && weight >= 905 || weight < 835 && weight >= 815 || weight < 745 && weight >= 725 || weight < 655 && weight >= 635 || weight < 565 && weight >= 545 || weight < 475 && weight >= 455 || weight < 385 && weight >= 365 || weight < 295 && weight >= 275 || weight < 205 && weight >= 185 || weight < 115 && weight >= 95){
+            twentyFive = 2;
+
+        }else {
+            twentyFive = 0;
+        }
+
+        if(weight > 1065) {
+            weight = toString();
+            weight = "Too heavy";
+            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
+        }else if( weight < 995 && weight >= 985 || weight < 905 && weight >= 895 || weight < 815 && weight >= 805 || weight < 725 && weight >= 715 || weight < 635 && weight >= 625 || weight < 545 && weight >= 535 || weight < 455 && weight >= 445 || weight < 365 && weight >= 355 || weight < 275 && weight >= 265 || weight < 185 && weight >= 175 || weight < 95 && weight >= 85){
+            ten = 4;
+        }else if(weight < 1065 && weight >= 1055 || weight < 985 && weight >= 965 || weight < 895 && weight >= 875 || weight < 805 && weight >= 785 || weight < 715 && weight >= 795 || weight < 625 && weight >= 605 || weight < 535 && weight >= 515 || weight < 445 && weight >= 425 || weight < 355 && weight >= 335 || weight < 265 && weight >= 245 || weight < 175 && weight >= 155 || weight < 85 && weight >= 65){
+            ten = 2;
+        }else {
+            ten = 0;
+        }
+
+        if (weight % 10) {
+            twoHalf = 0;
+        } else {
+            twoHalf = 2;
+        }
+        
+        temp = (weight - barWeight)-((fortyFive * 45) + (thirtyFive * 35) + (twentyFive * 25) + (ten * 10) + (twoHalf * 2.5));
+
+        if(temp != 0){
+            five = 2;
+        }else{
+            five = 0;
+        }
+        
+        if(weight > 1065) {
+            weight = toString();
+            weight = "Too heavy";
+            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf, temp = toString();
+            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf, temp = "Too heavy";
+            }
+        
+        document.form1.fortyFive.value = fortyFive;
+        document.form1.thirtyFive.value = thirtyFive;
+        document.form1.twentyFive.value = twentyFive;
+        document.form1.ten.value = ten;
+        document.form1.five.value = five;
+        document.form1.twoHalf.value = twoHalf;
+        document.form1.weight.value = weight;
+
+     }
+</script>
 
 <html lang="en">
 
@@ -52,9 +181,49 @@
       </ul>
 
     </nav>
-
-    <div class="body-text"><h1 style="color: white;">Some Text</h1></div>
-
+<form name="form1">
+    <div class="body-text"><h1 style="color: white;">
+    <p>
+      Weight: <input type="text" name="weight" size="10" value="">
+      <p>
+        <input type="button" value="Calculate" id="calculate" onclick="calculateLbWeights()">
+      <hr>
+      <div style ="float: left; width: 160;">
+      45s: <input type="text" name="fortyFive" size="10" value="">
+      <p>
+              <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/45lb_orig.png" width="275" height="200" alt="45lb"></div>
+      
+      <div style ="float: left; width: 160;">
+      35s: <input type="text" name="thirtyFive" size="10" value="">
+      <p>
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/35lb_orig.png" width="275" height="200" alt="35lb">
+      </div>
+      
+      <div style ="float: left; width: 160;">
+      25s: <input type="text" name="twentyFive" size="10" value="">
+      <p>
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/25lb_orig.png" width="275" height="200" alt="25lb">
+      </div>
+      
+      <div style ="float: left; width: 160;">
+      10s: <input type="text" name="ten" size="10" value="">
+      <p>
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/10lb_orig.png" width="275" height="200" alt="10lb">
+      </div>
+      
+      <div style ="float: left; width: 160;">
+      5s: <input type="text" name="five" size="10" value="">
+      <p>
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/5lb_orig.png" width="275" height="200" alt="5lb">
+      </div>
+      
+      <div style ="float: left; width: 160;">
+      2.5s: <input type="text" name="twoHalf" size="10" value="">
+      <p>
+      <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/2-5lb_orig.png" width="275" height="200" alt="2.5lb">
+      </div>
+    </h1></div>
+    </form>
   </body>
 
 </html>
