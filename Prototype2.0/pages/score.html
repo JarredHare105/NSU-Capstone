@@ -18,54 +18,30 @@
 
     <link rel="stylesheet" href="../style.css" />
 
-    <title>About</title>
+    <title>Score</title>
 
     <style>
       * {
         box-sizing: border-box;
       }
-      body {
-        font-family: Montserrat, sans-serif;
-        margin: 0;
-        min-height: 100%;
-        line-height: 20px;
-      }
-      a {
-        color: #f14b3e;
-      }
       #background {
-        height: 280px;
+        height: 340px;
         color: white;
-      }
-      #title {
-        height: 38px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        border-bottom-style: solid;
-        background-color: white;
-        color: white;
-      }
-      h1 {
-        color: red;
-        font-size: 16px;
-        line-height: 16px;
-        margin: 0px auto;
       }
       h2 {
-        font-size: 82px;
+        font-size: 80px;
         font-weight: 700;
-        line-height: 82px;
+        line-height: 80px;
         text-align: center;
         margin-top: 20px;
         margin-bottom: 10px;
       }
       h3 {
-        font-size: 32px;
-        font-weight: 400;
-        line-height: 32px;
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 60px;
         text-align: center;
-        margin-top: 12px;
+        margin-top: 20px;
         margin-bottom: 10px;
       }
       #form-card {
@@ -139,27 +115,6 @@
         border: 1px solid rgb(161, 161, 161);
         border-radius: 5px;
       }
-
-      #calculate {
-        width: 247px;
-        height: 50px;
-        margin-top: 30px;
-        border-radius: 30px;
-        background-image: linear-gradient(90deg, red, royalblue);
-        font-weight: 400;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        display: inline-block;
-        padding: 9px 15px;
-        color: white;
-        border: 0;
-        font-size: 18px;
-        font-family: Montserrat, sans-serif;
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-
     </style>
 
   </head>
@@ -199,7 +154,9 @@
 
 
       <div id="points">
-        <h2 id="display-dots"></h2>
+        <h2 id="displayDots"></h2>
+        <h3 id="displayGLP"></h3>
+        <h3 id="displayWilks"></h3>
       </div>
     </div>
 
@@ -238,37 +195,53 @@
             <label for="women" class="label-radio">Women</label>
           </div>
         </div>
-
-        <input type="button" value="Calculate" id="calculate" onclick="calc()">
       </div>
     </div>
 
 
     <script>
-      function dots_poly(a,b,c,d,e,x) {
-        var x2=x*x,x3=x2*x,x4=x3*x;
-        return 500.0 / (a*x4+b*x3+c*x2+d*x+e);
+      function dotsCoef(a,b,c,d,e,x) {
+        var x2=x*x, x3=x2*x, x4=x3*x;
+        return 500.0 / (a*x4 + b*x3 + c*x2 + d*x + e);
       }
-      function dots_men(bw) {
+      function dotsMen(bw) {
         bw = Math.min(Math.max(bw, 40.0), 210.0);
-        return dots_poly(-0.0000010930,0.0007391293,-0.1918759221,24.0900756,-307.75076,bw);
+        return dotsCoef(-0.0000010930, 0.0007391293, -0.1918759221, 24.0900756, -307.75076, bw);
       }
-      function dots_women(bw) {
+      function dotsWomen(bw) {
         bw = Math.min(Math.max(bw, 40.0), 150.0);
-        return dots_poly(-0.0000010706,0.0005158568,-0.1126655495,13.6175032,-57.96288,bw);
+        return dotsCoef(-0.0000010706, 0.0005158568, -0.1126655495, 13.6175032, -57.96288, bw);
       }
 
-      var PARAMETERS = {
+      function wilksCoef(a,b,c,d,e,f,x) {
+        var x2=x*x, x3=x2*x, x4=x3*x, x5=x4*x;
+        return 500.0 / (a*x5 + b*x4 + c*x3 + d*x2 + e*x + f);
+      }
+      function wilksMen(bw) {
+        bw = Math.min(Math.max(bw, 40.0), 210.0);
+        return wilksCoef(-0.00000001291, 0.00000701863, -0.00113732, -0.002388645, 16.2606339, -216.0475144, bw);
+      }
+      function wilksWomen(bw) {
+        bw = Math.min(Math.max(bw, 40.0), 150.0);
+        return wilksCoef(-0.0000009054 , 0.00004731582 , -0.00930733913 , 0.82112226871 , -27.23842536447, 594.31747775582, bw);
+      }
+
+      function glpCoef(a,b,c,e,x) {
+        return 100.0 / (a-b*(e**=(c*x)));
+      }
+      function glpMen(bw) {
+        bw = Math.min(Math.max(bw, 40.0), 210.0);
+        return glpCoef(1199.72839, 1025.18162, -0.00921, 2.718281828459, bw);
+      }
+      function glpWomen(bw) {
+        bw = Math.min(Math.max(bw, 40.0), 150.0);
+        return glpCoef(610.32796, 1045.59282, -0.03048, 2.718281828459, bw);
+      }
+
+      var param = {
         "M": {
-          "Raw": {
-            "SBD": [1199.72839, 1025.18162, 0.009210],
-          },
         },
         "F": {
-          "Raw": {
-            "SBD": [610.32796, 1045.59282, 0.03048],
-          },
-
         }
       };
 
@@ -290,11 +263,14 @@
           total = total / 2.20462262;
         }
 
-        var dots = total * ((sex === "M") ? dots_men(bw) : dots_women(bw));
+        var dots = total * ((sex === "M") ? dotsMen(bw) : dotsWomen(bw));
+        var wilks = total * ((sex === "M") ? wilksMen(bw) : wilksWomen(bw));
+        var glp = total * ((sex === "M") ? glpMen(bw) : glpWomen(bw));
 
-        document.getElementById("display-dots").innerHTML = dots.toFixed(2) + " Dots";
+        document.getElementById("displayDots").innerHTML = dots.toFixed(2) + " Dots";
+        document.getElementById("displayWilks").innerHTML = wilks.toFixed(2) + " Wilks";
+        document.getElementById("displayGLP").innerHTML = glp.toFixed(2) + " GLP";
       }
-      document.addEventListener("DOMContentLoaded", function(e){calc()});
     </script>
   </body>
   </body>
