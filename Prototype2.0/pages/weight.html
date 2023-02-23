@@ -105,7 +105,7 @@
         
         temp = (weight - barWeight)-((fortyFive * 45) + (thirtyFive * 35) + (twentyFive * 25) + (ten * 10) + (twoHalf * 2.5));
 
-        if(temp != 0){
+        if(temp == 5){
             five = 2;
         }else{
             five = 0;
@@ -120,6 +120,15 @@
         document.form1.weight.value = weight;
 
      }
+
+     function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
 </script>
 
 <html lang="en">
@@ -179,41 +188,43 @@
     <p>
       Weight: <input type="text" name="weight" size="10" value="">
       <p>
-        <input type="button" value="Calculate" id="calculate" onclick="calculateLbWeights()">
+        <input type="button" value="Calculate" id="calculate" onclick="calculateLbWeights(), myFunction()">
       <hr>
+      <div id="myDIV" hidden>
       <div style ="float: left; width: 160;">
       45s: <input type="text" name="fortyFive" size="10" value="">
       <p>
-              <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/45lb_orig.png" width="275" height="200" alt="45lb"></div>
+              <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/45lb_orig.png" width="275" height="200" alt="45lb" style="visibility: shown;"></div>
       
       <div style ="float: left; width: 160;">
       35s: <input type="text" name="thirtyFive" size="10" value="">
       <p>
-          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/35lb_orig.png" width="275" height="200" alt="35lb">
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/35lb_orig.png" width="275" height="200" alt="35lb" style="visibility: shown;">
       </div>
       
       <div style ="float: left; width: 160;">
       25s: <input type="text" name="twentyFive" size="10" value="">
       <p>
-          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/25lb_orig.png" width="275" height="200" alt="25lb">
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/25lb_orig.png" width="275" height="200" alt="25lb" style="visibility: shown;">
       </div>
       
       <div style ="float: left; width: 160;">
       10s: <input type="text" name="ten" size="10" value="">
       <p>
-          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/10lb_orig.png" width="275" height="200" alt="10lb">
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/10lb_orig.png" width="275" height="200" alt="10lb" style="visibility: shown;">
       </div>
       
       <div style ="float: left; width: 160;">
       5s: <input type="text" name="five" size="10" value="">
       <p>
-          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/5lb_orig.png" width="275" height="200" alt="5lb">
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/5lb_orig.png" width="275" height="200" alt="5lb" style="visibility: shown;">
       </div>
       
       <div style ="float: left; width: 160;">
       2.5s: <input type="text" name="twoHalf" size="10" value="">
       <p>
-      <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/2-5lb_orig.png" width="275" height="200" alt="2.5lb">
+      <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/2-5lb_orig.png" width="275" height="200" alt="2.5lb" style="visibility: shown;">
+      </div>
       </div>
     </h1></div>
     </form>
