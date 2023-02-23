@@ -33,9 +33,9 @@
         var temp;
         weight = parseInt (document.form1.weight.value);
 
-        if(weight > 1065) {
+        if(weight > 1065 || weight % 5 != 0) {
             weight = toString();
-            weight = "Too heavy";
+            weight = "Enter a new weight";
             fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
         }else if(weight >= 1035){
             fortyFive = 22;
@@ -63,9 +63,9 @@
             fortyFive = 0;
         }
 
-        if(weight > 1065) {
+        if(weight > 1065 || weight % 5 != 0) {
             weight = toString();
-            weight = "Too heavy";
+            weight = "Enter a new weight";
             fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
         }else if( weight < 1035 && weight >= 1015 || weight < 945 && weight >= 925 || weight < 855 && weight >= 835 || weight < 765 && weight >= 745 || weight < 675 && weight >= 655 || weight < 585 && weight >= 565 || weight < 495 && weight >= 475 || weight < 405 && weight >= 385 || weight < 315 && weight >= 295 || weight < 225 && weight >= 205 || weight < 135 && weight >= 115){
             thirtyFive = 2;
@@ -74,9 +74,9 @@
             thirtyFive = 0;
         }
 
-        if(weight > 1065) {
+        if(weight > 1065 || weight % 5 != 0) {
             weight = toString();
-            weight = "Too heavy";
+            weight = "Enter a new weight";
             fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
         }else if( weight < 1015 && weight >= 995 || weight < 925 && weight >= 905 || weight < 835 && weight >= 815 || weight < 745 && weight >= 725 || weight < 655 && weight >= 635 || weight < 565 && weight >= 545 || weight < 475 && weight >= 455 || weight < 385 && weight >= 365 || weight < 295 && weight >= 275 || weight < 205 && weight >= 185 || weight < 115 && weight >= 95){
             twentyFive = 2;
@@ -85,9 +85,9 @@
             twentyFive = 0;
         }
 
-        if(weight > 1065) {
+        if(weight > 1065 || weight % 5 != 0) {
             weight = toString();
-            weight = "Too heavy";
+            weight = "Enter a new weight";
             fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
         }else if( weight < 995 && weight >= 985 || weight < 905 && weight >= 895 || weight < 815 && weight >= 805 || weight < 725 && weight >= 715 || weight < 635 && weight >= 625 || weight < 545 && weight >= 535 || weight < 455 && weight >= 445 || weight < 365 && weight >= 355 || weight < 275 && weight >= 265 || weight < 185 && weight >= 175 || weight < 95 && weight >= 85){
             ten = 4;
@@ -97,7 +97,7 @@
             ten = 0;
         }
 
-        if (weight % 10) {
+        if (weight % 10 != 0) {
             twoHalf = 0;
         } else {
             twoHalf = 2;
@@ -110,13 +110,6 @@
         }else{
             five = 0;
         }
-        
-        if(weight > 1065) {
-            weight = toString();
-            weight = "Too heavy";
-            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf, temp = toString();
-            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf, temp = "Too heavy";
-            }
         
         document.form1.fortyFive.value = fortyFive;
         document.form1.thirtyFive.value = thirtyFive;
