@@ -34,8 +34,7 @@
         weight = parseInt (document.form1.weight.value);
 
         if(weight > 1065 || weight % 5 != 0) {
-            weight = toString();
-            weight = "Enter a new weight";
+            weight = null;
             fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
         }else if(weight >= 1035){
             fortyFive = 22;
@@ -64,8 +63,7 @@
         }
 
         if(weight > 1065 || weight % 5 != 0) {
-            weight = toString();
-            weight = "Enter a new weight";
+            weight = null;
             fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
         }else if( weight < 1035 && weight >= 1015 || weight < 945 && weight >= 925 || weight < 855 && weight >= 835 || weight < 765 && weight >= 745 || weight < 675 && weight >= 655 || weight < 585 && weight >= 565 || weight < 495 && weight >= 475 || weight < 405 && weight >= 385 || weight < 315 && weight >= 295 || weight < 225 && weight >= 205 || weight < 135 && weight >= 115){
             thirtyFive = 2;
@@ -75,8 +73,7 @@
         }
 
         if(weight > 1065 || weight % 5 != 0) {
-            weight = toString();
-            weight = "Enter a new weight";
+            weight = null;
             fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
         }else if( weight < 1015 && weight >= 995 || weight < 925 && weight >= 905 || weight < 835 && weight >= 815 || weight < 745 && weight >= 725 || weight < 655 && weight >= 635 || weight < 565 && weight >= 545 || weight < 475 && weight >= 455 || weight < 385 && weight >= 365 || weight < 295 && weight >= 275 || weight < 205 && weight >= 185 || weight < 115 && weight >= 95){
             twentyFive = 2;
@@ -86,8 +83,7 @@
         }
 
         if(weight > 1065 || weight % 5 != 0) {
-            weight = toString();
-            weight = "Enter a new weight";
+            weight = null;
             fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = 0;
         }else if( weight < 995 && weight >= 985 || weight < 905 && weight >= 895 || weight < 815 && weight >= 805 || weight < 725 && weight >= 715 || weight < 635 && weight >= 625 || weight < 545 && weight >= 535 || weight < 455 && weight >= 445 || weight < 365 && weight >= 355 || weight < 275 && weight >= 265 || weight < 185 && weight >= 175 || weight < 95 && weight >= 85){
             ten = 4;
@@ -97,7 +93,7 @@
             ten = 0;
         }
 
-        if (weight % 10 != 0) {
+        if (weight % 10 != 0 || weight == null) {
             twoHalf = 0;
         } else {
             twoHalf = 2;
@@ -118,8 +114,55 @@
         document.form1.five.value = five;
         document.form1.twoHalf.value = twoHalf;
         document.form1.weight.value = weight;
+        
 
-     }
+
+        ///////////////
+        var fortyFivePlates = document.getElementById("45s");
+    if (fortyFive === 0) {
+        fortyFivePlates.style.display = "none";
+    } else {
+        fortyFivePlates.style.display = "block";
+    }
+    //////////////////
+    var thirtyFivePlates = document.getElementById("35s");
+    if (thirtyFive === 0) {
+        thirtyFivePlates.style.display = "none";
+    } else {
+        thirtyFivePlates.style.display = "block";
+    }
+        //////////////////
+        var twentyFivePlates = document.getElementById("25s");
+    if (twentyFive === 0) {
+        twentyFivePlates.style.display = "none";
+    } else {
+        twentyFivePlates.style.display = "block";
+    }
+        //////////////////
+        var tenPlates = document.getElementById("10s");
+    if (ten === 0) {
+        tenPlates.style.display = "none";
+    } else {
+        tenPlates.style.display = "block";
+    }
+
+        //////////////////
+        var fivePlates = document.getElementById("5s");
+    if (five === 0) {
+        fivePlates.style.display = "none";
+    } else {
+        fivePlates.style.display = "block";
+    }
+
+        //////////////////
+        var twohalfPlates = document.getElementById("2.5s");
+    if (twoHalf === 0) {
+        twohalfPlates.style.display = "none";
+    } else {
+        twohalfPlates.style.display = "block";
+    }
+}
+
 
      function myFunction() {
   var x = document.getElementById("myDIV");
@@ -186,44 +229,55 @@
 <form name="form1">
     <div class="body-text"><h1 style="color: white;">
     <p>
-      Weight: <input type="text" name="weight" size="10" value="">
+      Weight: <input type="text" name="weight" size="15" value="">
       <p>
         <input type="button" value="Calculate" id="calculate" onclick="calculateLbWeights(), myFunction()">
       <hr>
       <div id="myDIV" hidden>
+        <div id="45s" hidden>
+            
       <div style ="float: left; width: 160;">
       45s: <input type="text" name="fortyFive" size="10" value="">
       <p>
               <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/45lb_orig.png" width="275" height="200" alt="45lb" style="visibility: shown;"></div>
-      
+      </div>    
+      <div id="35s">
       <div style ="float: left; width: 160;">
       35s: <input type="text" name="thirtyFive" size="10" value="">
       <p>
           <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/35lb_orig.png" width="275" height="200" alt="35lb" style="visibility: shown;">
+        </div>
       </div>
-      
+      <div id="25s">
       <div style ="float: left; width: 160;">
       25s: <input type="text" name="twentyFive" size="10" value="">
       <p>
           <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/25lb_orig.png" width="275" height="200" alt="25lb" style="visibility: shown;">
       </div>
+      </div>
       
+      <div id="10s">
       <div style ="float: left; width: 160;">
       10s: <input type="text" name="ten" size="10" value="">
       <p>
           <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/10lb_orig.png" width="275" height="200" alt="10lb" style="visibility: shown;">
       </div>
-      
+    </div>
+
+    <div id="5s">
       <div style ="float: left; width: 160;">
       5s: <input type="text" name="five" size="10" value="">
       <p>
           <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/5lb_orig.png" width="275" height="200" alt="5lb" style="visibility: shown;">
       </div>
+    </div>
       
+    <div id="2.5s">
       <div style ="float: left; width: 160;">
       2.5s: <input type="text" name="twoHalf" size="10" value="">
       <p>
       <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/2-5lb_orig.png" width="275" height="200" alt="2.5lb" style="visibility: shown;">
+    </div>
       </div>
       </div>
     </h1></div>
