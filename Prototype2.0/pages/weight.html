@@ -231,6 +231,17 @@
     <p>
       Weight: <input type="text" name="weight" size="15" value="">
       <p>
+        <div class="radio-group">
+            <div class="radio-field">
+              <input type="radio" id="pounds" name="units" value="lbs">
+              <label for="pounds" class="label-radio">Pounds</label>
+            </div>
+  
+            <div class="radio-field">
+              <input type="radio" id="kilograms" name="units" value="kg">
+              <label for="kilograms" class="label-radio">Kilos</label>
+            </div>
+          </div>
         <input type="button" value="Calculate" id="calculate" onclick="calculateLbWeights(), myFunction()">
       <hr>
       <div id="myDIV" hidden>
