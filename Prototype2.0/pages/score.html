@@ -33,6 +33,7 @@
         font-weight: 700;
         line-height: 80px;
         text-align: center;
+        vertical-align: middle;
         margin-top: 20px;
         margin-bottom: 10px;
       }
@@ -155,8 +156,9 @@
 
       <div id="points">
         <h2 id="displayDots"></h2>
-        <h3 id="displayGLP"></h3>
-        <h3 id="displayWilks"></h3>
+        <h2 id="displayGLP"></h2>
+        
+        <!-- <h3 id="displayWilks"></h3> -->
       </div>
     </div>
 
@@ -213,18 +215,18 @@
         return dotsCoef(-0.0000010706, 0.0005158568, -0.1126655495, 13.6175032, -57.96288, bw);
       }
 
-      function wilksCoef(a,b,c,d,e,f,x) {
-        var x2=x*x, x3=x2*x, x4=x3*x, x5=x4*x;
-        return 500.0 / (a*x5 + b*x4 + c*x3 + d*x2 + e*x + f);
-      }
-      function wilksMen(bw) {
-        bw = Math.min(Math.max(bw, 40.0), 210.0);
-        return wilksCoef(-0.00000001291, 0.00000701863, -0.00113732, -0.002388645, 16.2606339, -216.0475144, bw);
-      }
-      function wilksWomen(bw) {
-        bw = Math.min(Math.max(bw, 40.0), 150.0);
-        return wilksCoef(-0.0000009054 , 0.00004731582 , -0.00930733913 , 0.82112226871 , -27.23842536447, 594.31747775582, bw);
-      }
+      // function wilksCoef(a,b,c,d,e,f,x) {
+      //   var x2=x*x, x3=x2*x, x4=x3*x, x5=x4*x;
+      //   return 500.0 / (a*x5 + b*x4 + c*x3 + d*x2 + e*x + f);
+      // }
+      // function wilksMen(bw) {
+      //   bw = Math.min(Math.max(bw, 40.0), 210.0);
+      //   return wilksCoef(-0.00000001291, 0.00000701863, -0.00113732, -0.002388645, 16.2606339, -216.0475144, bw);
+      // }
+      // function wilksWomen(bw) {
+      //   bw = Math.min(Math.max(bw, 40.0), 150.0);
+      //   return wilksCoef(-0.0000009054 , 0.00004731582 , -0.00930733913 , 0.82112226871 , -27.23842536447, 594.31747775582, bw);
+      // }
 
       function glpCoef(a,b,c,e,x) {
         return 100.0 / (a-b*(e**=(c*x)));
@@ -264,11 +266,11 @@
         }
 
         var dots = total * ((sex === "M") ? dotsMen(bw) : dotsWomen(bw));
-        var wilks = total * ((sex === "M") ? wilksMen(bw) : wilksWomen(bw));
+        // var wilks = total * ((sex === "M") ? wilksMen(bw) : wilksWomen(bw));
         var glp = total * ((sex === "M") ? glpMen(bw) : glpWomen(bw));
 
         document.getElementById("displayDots").innerHTML = dots.toFixed(2) + " Dots";
-        document.getElementById("displayWilks").innerHTML = wilks.toFixed(2) + " Wilks";
+        //document.getElementById("displayWilks").innerHTML = wilks.toFixed(2) + " Wilks";
         document.getElementById("displayGLP").innerHTML = glp.toFixed(2) + " GLP";
       }
     </script>
