@@ -14,7 +14,7 @@ Access to a web browser.
 
 ### Installing
 
-Download the "final folder".  This folder will have the html and css pages needed.  
+Download the "FinalProduct folder".  This folder will have the html and css pages needed.  
 
 ### Executing program
 
