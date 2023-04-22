@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<style>
+#calculate {
+  width: 250px;
+  height: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: center;
+  border-radius: 30px;
+  background-image: linear-gradient(90deg, red, royalblue);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 10px 15px;
+  color: white;
+  border: 0;
+  font-size: 18px;
+  font-family: Montserrat, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.body-text{
+  text-align: center
+}
+</style>
+<script language="javascript">
+  function calculateWeights () {
+        var weight, fortyFive, thirtyFive, twentyFive, ten, five, twoHalf, twentyFiveKG, twentyKG, fifteenKG, tenKG, fiveKG, twoHalfKG, oneTwoFiveKG;
+        var barWeight = 45;
+        //var barWeightKG = 20;
+        var temp;
+        weight = parseFloat(document.form1.weight.value);
+
+        if(document.getElementById('pounds').checked){
+            barWeight = 45;
+        if(weight > 1065 || weight % 5 != 0) {
+            weight = null;
+            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = null;
+        }else if(weight >= 1035){
+            fortyFive = 22;
+        }else if(weight >= 945){
+            fortyFive = 20;
+        }else if(weight >= 855){
+            fortyFive = 18;
+        }else if(weight >= 765){
+            fortyFive = 16;
+        }else if(weight >= 675){
+            fortyFive = 14;
+        }else if(weight >= 585){
+            fortyFive = 12;
+        }else if(weight >= 495){
+            fortyFive = 10;
+        }else if(weight >= 405){
+            fortyFive = 8;
+        }else if(weight >= 315){
+            fortyFive = 6;
+        }else if(weight >= 225){
+            fortyFive = 4;
+        }else if(weight >= 135){
+            fortyFive = 2;
+        }else {
+            fortyFive = 0;
+        }
+
+        if(weight > 1065 || weight % 5 != 0) {
+            weight = null;
+            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = null;
+        }else if( weight < 1035 && weight >= 1015 || weight < 945 && weight >= 925 || weight < 855 && weight >= 835 || weight < 765 && weight >= 745 || weight < 675 && weight >= 655 || weight < 585 && weight >= 565 || weight < 495 && weight >= 475 || weight < 405 && weight >= 385 || weight < 315 && weight >= 295 || weight < 225 && weight >= 205 || weight < 135 && weight >= 115){
+            thirtyFive = 2;
+
+        }else {
+            thirtyFive = 0;
+        }
+
+        if(weight > 1065 || weight % 5 != 0) {
+            weight = null;
+            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = null;
+        }else if( weight < 1015 && weight >= 995 || weight < 925 && weight >= 905 || weight < 835 && weight >= 815 || weight < 745 && weight >= 725 || weight < 655 && weight >= 635 || weight < 565 && weight >= 545 || weight < 475 && weight >= 455 || weight < 385 && weight >= 365 || weight < 295 && weight >= 275 || weight < 205 && weight >= 185 || weight < 115 && weight >= 95){
+            twentyFive = 2;
+
+        }else {
+            twentyFive = 0;
+        }
+
+        if(weight > 1065 || weight % 5 != 0) {
+            weight = null;
+            fortyFive, thirtyFive, twentyFive, ten, five, twoHalf = null;
+        }else if( weight < 995 && weight >= 985 || weight < 905 && weight >= 895 || weight < 815 && weight >= 805 || weight < 725 && weight >= 715 || weight < 635 && weight >= 625 || weight < 545 && weight >= 535 || weight < 455 && weight >= 445 || weight < 365 && weight >= 355 || weight < 275 && weight >= 265 || weight < 185 && weight >= 175 || weight < 95 && weight >= 85){
+            ten = 4;
+        }else if(weight < 1065 && weight >= 1055 || weight < 985 && weight >= 965 || weight < 895 && weight >= 875 || weight < 805 && weight >= 785 || weight < 715 && weight >= 795 || weight < 625 && weight >= 605 || weight < 535 && weight >= 515 || weight < 445 && weight >= 425 || weight < 355 && weight >= 335 || weight < 265 && weight >= 245 || weight < 175 && weight >= 155 || weight < 85 && weight >= 65){
+            ten = 2;
+        }else {
+            ten = 0;
+        }
+
+        if (weight % 10 != 0 || weight == null) {
+            twoHalf = 0;
+        } else {
+            twoHalf = 2;
+        }
+        
+        temp = (weight - barWeight)-((fortyFive * 45) + (thirtyFive * 35) + (twentyFive * 25) + (ten * 10) + (twoHalf * 2.5));
+
+        if(temp == 10){
+            five = 2;
+        }else{
+            five = 0;
+        }
+        twentyFiveKG = 0;
+        twentyKG = 0;
+        fifteenKG = 0;
+        tenKG = 0;
+        fiveKG = 0;
+        twoHalfKG = 0;
+        oneTwoFiveKG = 0;
+        }
+        
+    if(document.getElementById('kilograms').checked){
+        if(weight > 520 || weight % 1.25 != 0) {
+            weight = null;
+            twentyFiveKG, twentyKG, fifteenKG, tenKG, fiveKG, twoHalfKG, oneTwoFiveKG = null;
+        }else if(weight == 520){
+            twentyFiveKG = 20;
+        }else if(weight >= 470){
+            twentyFiveKG = 18;
+        }else if(weight >= 420){
+            twentyFiveKG = 16;
+        }else if(weight >= 370){
+            twentyFiveKG = 14;
+        }else if(weight >= 320){
+            twentyFiveKG = 12;
+        }else if(weight >= 270){
+            twentyFiveKG = 10;
+        }else if(weight >= 220){
+            twentyFiveKG = 8;
+        }else if(weight >= 170){
+            twentyFiveKG = 6;
+        }else if(weight >= 120){
+            twentyFiveKG = 4;
+        }else if(weight >= 70){
+            twentyFiveKG = 2;
+        }
+        else {
+            twentyFiveKG = 0;
+        }
+
+        if(weight < 520 && weight >= 510 || weight < 470 && weight >= 460 || weight < 420 && weight >= 410 || weight < 370 && weight >= 360 || weight < 320 && weight >= 310 || weight < 270 && weight >= 260 || weight < 220 && weight >= 210 || weight < 170 && weight >= 160 || weight < 120 && weight >= 110 || weight < 70 && weight >= 60){
+            twentyKG = 2
+        }else{
+            twentyKG = 0;
+        }
+
+        if(weight < 510 && weight >= 500 || weight < 460 && weight >= 450 || weight < 410 && weight >= 400 || weight < 360 && weight >= 350 || weight < 310 && weight >= 300 || weight < 260 && weight >= 250 || weight < 210 && weight >= 200 || weight < 160 && weight >= 150 || weight < 110 && weight >= 100 || weight < 60 && weight >= 50){
+            fifteenKG = 2;
+        }else{
+            fifteenKG = 0;
+        }
+
+        if(weight < 500 && weight >= 490 || weight < 450 && weight >= 440 || weight < 400 && weight >= 390 || weight < 350 && weight >= 340 || weight < 300 && weight >= 290 || weight < 250 && weight >= 240 || weight < 200 && weight >= 190 || weight < 150 && weight >= 140 || weight < 100 && weight >= 90 || weight < 50 && weight >= 40){
+            tenKG = 2;
+        }else{
+            tenKG = 0;
+        }
+
+        if (weight < 490 && weight >= 480 || weight < 440 && weight >= 430 || weight < 390 && weight >= 380 || weight < 340 && weight >= 330 || weight < 290 && weight >= 280 || weight < 240 && weight >= 230 || weight < 190 && weight >= 180 || weight < 140 && weight >= 130 || weight < 90 && weight >= 80 || weight < 40 && weight >= 30)
+        {
+            fiveKG = 2;
+        }else{
+            fiveKG = 0;
+        }
+
+        if(weight % 10 == 5 && weight % 100 != 10){
+            twoHalfKG = 2;
+        }else{
+            twoHalfKG = 0;
+        }
+
+        if(weight % 1 == 0.5){
+            oneTwoFiveKG = 2;
+        }else{
+            oneTwoFiveKG = 0;
+        }
+
+        fortyFive = 0;
+        thirtyFive = 0;
+        twentyFive = 0;
+        ten = 0;
+        five = 0;
+        twoHalf = 0;
+
+    }
+
+        document.form1.fortyFive.value = fortyFive;
+        document.form1.thirtyFive.value = thirtyFive;
+        document.form1.twentyFive.value = twentyFive;
+        document.form1.ten.value = ten;
+        document.form1.five.value = five;
+        document.form1.twoHalf.value = twoHalf;
+        document.form1.twentyFiveKG.value = twentyFiveKG;
+        document.form1.twentyKG.value = twentyKG;
+        document.form1.fifteenKG.value = fifteenKG;
+        document.form1.tenKG.value = tenKG;
+        document.form1.fiveKG.value = fiveKG;
+        document.form1.twoHalfKG.value = twoHalfKG;
+        document.form1.oneTwoFiveKG.value = oneTwoFiveKG;
+        document.form1.weight.value = weight;
+        
+
+
+        ///////////////
+        var fortyFivePlates = document.getElementById("45s");
+    if (fortyFive === 0) {
+        fortyFivePlates.style.display = "none";
+    } else {
+        fortyFivePlates.style.display = "block";
+    }
+    //////////////////
+    var thirtyFivePlates = document.getElementById("35s");
+    if (thirtyFive === 0) {
+        thirtyFivePlates.style.display = "none";
+    } else {
+        thirtyFivePlates.style.display = "block";
+    }
+        //////////////////
+        var twentyFivePlates = document.getElementById("25s");
+    if (twentyFive === 0) {
+        twentyFivePlates.style.display = "none";
+    } else {
+        twentyFivePlates.style.display = "block";
+    }
+        //////////////////
+        var tenPlates = document.getElementById("10s");
+    if (ten === 0) {
+        tenPlates.style.display = "none";
+    } else {
+        tenPlates.style.display = "block";
+    }
+
+        //////////////////
+        var fivePlates = document.getElementById("5s");
+    if (five === 0) {
+        fivePlates.style.display = "none";
+    } else {
+        fivePlates.style.display = "block";
+    }
+
+        //////////////////
+        var twohalfPlates = document.getElementById("2.5s");
+    if (twoHalf === 0) {
+        twohalfPlates.style.display = "none";
+    } else {
+        twohalfPlates.style.display = "block";
+    }
+        // ///////////////////
+    var twentyFiveKGPlates = document.getElementById("25kg");
+    if (twentyFiveKG === 0) {
+        twentyFiveKGPlates.style.display = "none";
+    } else {
+        twentyFiveKGPlates.style.display = "block";
+    }
+    // //////////////////
+    var twentyKGPlates = document.getElementById("20kg");
+    if (twentyKG === 0) {
+        twentyKGPlates.style.display = "none";
+    } else {
+        twentyKGPlates.style.display = "block";
+    }
+    // /////////////////
+    var fifteenKGPlates = document.getElementById("15kg");
+    if (fifteenKG === 0) {
+        fifteenKGPlates.style.display = "none";
+    } else {
+        fifteenKGPlates.style.display = "block";
+    }
+    // ////////////////
+    var tenKGPlates = document.getElementById("10kg");
+    if (tenKG === 0) {
+        tenKGPlates.style.display = "none";
+    } else {
+        tenKGPlates.style.display = "block";
+    }
+    // /////////////////
+    var fiveKGPlates = document.getElementById("5kg");
+    if (fiveKG === 0) {
+        fiveKGPlates.style.display = "none";
+    } else {
+        fiveKGPlates.style.display = "block";
+    }
+    // /////////////////
+    var twoHalfKGPlates = document.getElementById("2.5kg");
+    if (twoHalfKG === 0) {
+        twoHalfKGPlates.style.display = "none";
+    } else {
+        twoHalfKGPlates.style.display = "block";
+    }
+    // /////////////////
+    var oneTwoFiveKGPlates = document.getElementById("1.25kg");
+    if (oneTwoFiveKG === 0) {
+        oneTwoFiveKGPlates.style.display = "none";
+    } else {
+        oneTwoFiveKGPlates.style.display = "block";
+    }
+    var z = document.getElementById("text");
+    z.style.display = "none";
+}
+
+
+     function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+
+      rel="stylesheet"
+
+    />
+
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>Weights</title>
+
+  </head>
+  <nav>
+
+    <div class="heading">
+
+      <h4>PowerLifting Tools</h4>
+
+    </div>
+
+    <ul class="nav-links">
+
+      <li><a href="../index.html">Home</a></li>
+
+      <li><a href="score.html">Score</a></li>
+
+      <li><a class="active" href="weight.html">Weights</a></li>
+
+      <li><a href="resources.html">Resources</a></li>
+
+    </ul>
+
+  </nav>
+
+  <body style="
+  background-color: red;
+  background-image:
+    linear-gradient(
+      to right, 
+      red, royalblue
+    )">
+<form name="form1">
+    <div style="text-align: center"><h1 style="color: white;">
+    <p>
+      Weight: <input type="text" name="weight" size="15" value="">
+      <p>
+        <div class="radio-group">
+            <div class="radio-field">
+              <input type="radio" id="pounds" name="units" value="lbs" checked>
+              <label for="pounds" class="label-radio">Pounds</label>
+            </div>
+  
+            <div class="radio-field">
+              <input type="radio" id="kilograms" name="units" value="kg">
+              <label for="kilograms" class="label-radio">Kilos</label>
+            </div>
+          </div>
+        <input type="button" value="Calculate" id="calculate" onclick="calculateWeights(), myFunction()">
+        <div id ="text">Select your desired units <br> For pounds the weight must be a multiple of 5. MAX Weight 1065
+            <br>For kilos the weight must be a multiple of 2.5. MAX Weight 520</div>
+      <hr>
+      <div id="myDIV" hidden>
+        <div id="45s" hidden>
+            
+      <div style ="float: left; width: 160;">
+      45s: <input type="text" name="fortyFive" size="10" value="">
+      <p>
+              <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/45lb_orig.png" width="275" height="200" alt="45lb" style="visibility: shown;"></div>
+      </div>    
+      <div id="35s">
+      <div style ="float: left; width: 160;">
+      35s: <input type="text" name="thirtyFive" size="10" value="">
+      <p>
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/35lb_orig.png" width="275" height="200" alt="35lb" style="visibility: shown;">
+        </div>
+      </div>
+      <div id="25s">
+      <div style ="float: left; width: 160;">
+      25s: <input type="text" name="twentyFive" size="10" value="">
+      <p>
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/25lb_orig.png" width="275" height="200" alt="25lb" style="visibility: shown;">
+      </div>
+      </div>
+      
+      <div id="10s">
+      <div style ="float: left; width: 160;">
+      10s: <input type="text" name="ten" size="10" value="">
+      <p>
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/10lb_orig.png" width="275" height="200" alt="10lb" style="visibility: shown;">
+      </div>
+    </div>
+
+    <div id="5s">
+      <div style ="float: left; width: 160;">
+      5s: <input type="text" name="five" size="10" value="">
+      <p>
+          <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/5lb_orig.png" width="275" height="200" alt="5lb" style="visibility: shown;">
+      </div>
+    </div>
+      
+    <div id="2.5s">
+      <div style ="float: left; width: 160;">
+      2.5s: <input type="text" name="twoHalf" size="10" value="">
+      <p>
+      <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/2-5lb_orig.png" width="275" height="200" alt="2.5lb" style="visibility: shown;">
+    </div>
+      </div>
+      <div id="25kg">
+        <div style ="float: left; width: 160;">
+            25s: <input type="text" name="twentyFiveKG" size="10" value="">
+            <p>
+            <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/25kg-plate_orig.png" width="275" height="200" alt="25KG" style="visibility: shown;">
+      </div>
+      </div>
+      <div id="20kg">
+        <div style ="float: left; width: 160;">
+            20s: <input type="text" name="twentyKG" size="10" value="">
+            <p>
+            <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/20kg-plat_orig.png" width="275" height="200" alt="20KG" style="visibility: shown;">
+      </div>
+      </div>
+      <div id="15kg">
+        <div style ="float: left; width: 160;">
+            15s: <input type="text" name="fifteenKG" size="10" value="">
+            <p>
+            <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/15kg-plate_orig.png" width="275" height="200" alt="15KG" style="visibility: shown;">
+      </div>
+      </div>
+      <div id="10kg">
+        <div style ="float: left; width: 160;">
+            10s: <input type="text" name="tenKG" size="10" value="">
+            <p>
+            <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/10kg-plate_orig.png" width="275" height="200" alt="10KG" style="visibility: shown;">
+      </div>
+      </div>
+      <div id="5kg">
+        <div style ="float: left; width: 160;">
+            5s: <input type="text" name="fiveKG" size="10" value="">
+            <p>
+            <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/5kg-plat_orig.png" width="275" height="200" alt="5KG" style="visibility: shown;">
+      </div>
+      </div>
+      <div id="2.5kg">
+        <div style ="float: left; width: 160;">
+            2.5s: <input type="text" name="twoHalfKG" size="10" value="">
+            <p>
+            <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/2-5kg-plate_orig.png" width="275" height="200" alt="2.5KG" style="visibility: shown;">
+      </div>
+      </div>
+      <div id="1.25kg">
+        <div style ="float: left; width: 160;">
+            1.25s: <input type="text" name="oneTwoFiveKG" size="10" value="">
+            <p>
+            <img src="https://jarredhare.weebly.com/uploads/1/4/2/8/142865545/1-25kg_orig.png" width="275" height="200" alt="1.25KG" style="visibility: shown;">
+      </div>
+      </div>
+      </div>
+    </h1></div>
+    </form>
+  </body>
+
+</html>
