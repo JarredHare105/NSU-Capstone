@@ -27,12 +27,52 @@
 }
 </style>
 <script language="javascript">
+
+function roundKilo(num) {
+  const multiple = 2.5;
+  const doubleWeight = multiple * 2;
+  const halfMultiple = multiple / 2;
+  const remainder = num % doubleWeight;
+  const roundedNum = num - remainder;
+  
+  if (remainder >= halfMultiple) {
+    return roundedNum + doubleWeight;
+  } else if (remainder >= -halfMultiple) {
+    return roundedNum + multiple;
+  } else {
+    return roundedNum;
+  }
+}
+
+function roundPound(num) {
+  const multiple = 5;
+  const doubleWeight = multiple * 2;
+  const halfMultiple = multiple / 2;
+  const remainder = num % doubleWeight;
+  const roundedNum = num - remainder;
+  
+  if (remainder >= halfMultiple) {
+    return roundedNum + doubleWeight;
+  } else if (remainder >= -halfMultiple) {
+    return roundedNum + multiple;
+  } else {
+    return roundedNum;
+  }
+}
+
   function calculateWeights () {
         var weight, fortyFive, thirtyFive, twentyFive, ten, five, twoHalf, twentyFiveKG, twentyKG, fifteenKG, tenKG, fiveKG, twoHalfKG, oneTwoFiveKG;
         var barWeight = 45;
         //var barWeightKG = 20;
         var temp;
         weight = parseFloat(document.form1.weight.value);
+        if(document.getElementById('kilograms').checked){
+          weight = roundKilo(weight);
+        }
+
+        if(document.getElementById('pounds').checked){
+          weight = roundPound(weight);
+        }
 
         if(document.getElementById('pounds').checked){
             barWeight = 45;
