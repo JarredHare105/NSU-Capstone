@@ -2,7 +2,7 @@ import pyautogui, time
 import random
 
 formData = [{'weight':str(225)},
-{'weight':str(random.randint(85, 400))}]
+{'weight':str(random.randint(45, 1065))}]
 
 pyautogui.PAUSE = .5
 print('Ensure that the browser window is active and the form is loaded')
