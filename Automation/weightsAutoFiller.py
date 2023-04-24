@@ -14,11 +14,11 @@ for person in formData:
     time.sleep(5)
     pyautogui.write(['\t','\t','\t', '\t','\t']) # needs five tabs not two to get to weight field field
 
-    # Fill out the Bodyweight field.
+    # Fill out the weight field.
     pyautogui.write(person['weight'] + '\t' + '\t') # writes the weight field and tabs to the calculate button
 
     # Press calculate
     pyautogui.write(['enter'])
    
 
-    pyautogui.write(['\t', '\t'])# tabs 6 times to get back to the starting point
+    pyautogui.write(['\t', '\t', '\t'])# tabs 6 times to get back to the starting point
