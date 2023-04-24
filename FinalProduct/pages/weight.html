@@ -32,9 +32,14 @@ function roundKilo(num) {
   const multiple = 2.5;
   const doubleWeight = multiple * 2;
   const halfMultiple = multiple / 2;
+
+  if (num % multiple === 0) {
+    return num;
+  }
+
   const remainder = num % doubleWeight;
   const roundedNum = num - remainder;
-  
+
   if (remainder >= halfMultiple) {
     return roundedNum + doubleWeight;
   } else if (remainder >= -halfMultiple) {
@@ -51,6 +56,10 @@ function roundPound(num) {
   const remainder = num % doubleWeight;
   const roundedNum = num - remainder;
   
+  if (num % multiple === 0) {
+    return num;
+  }
+
   if (remainder >= halfMultiple) {
     return roundedNum + doubleWeight;
   } else if (remainder >= -halfMultiple) {
@@ -66,6 +75,16 @@ function roundPound(num) {
         //var barWeightKG = 20;
         var temp;
         weight = parseFloat(document.form1.weight.value);
+
+
+        if(document.getElementById('pounds').checked && document.getElementById('KGs').checked){
+        weight= weight * 2.20462262;  
+        }
+
+        if(document.getElementById('kilograms').checked && document.getElementById('LBs').checked){
+        weight= weight / 2.20462262;  
+        }
+
         if(document.getElementById('kilograms').checked){
           weight = roundKilo(weight);
         }
@@ -425,9 +444,24 @@ function roundPound(num) {
             </div>
           </div>
         <input type="button" value="Calculate" id="calculate" onclick="calculateWeights(), myFunction()">
-        <div id ="text">Select your desired units <br> For pounds the weight must be a multiple of 5. MAX Weight 1065
+        <div id ="text">Select your desired units on the bar above and the units you know in the bottom right<br> For pounds the weight must be a multiple of 5. MAX Weight 1065
             <br>For kilos the weight must be a multiple of 2.5. MAX Weight 520</div>
       <hr>
+      <div style="position: fixed; bottom: 0; right: 0;">
+        Units I know:
+        <br>
+        <div class="radio-group">
+          <div class="radio-field">
+            <input type="radio" id="LBs" name="units1" value="LBs" checked>
+            <label for="LBs" class="label-radio">Pounds</label>
+          </div>
+
+          <div class="radio-field">
+            <input type="radio" id="KGs" name="units1" value="KGs">
+            <label for="KGs" class="label-radio">Kilos</label>
+          </div>
+        </div>
+      </div>
       <div id="myDIV" hidden>
         <div id="45s" hidden>
             
